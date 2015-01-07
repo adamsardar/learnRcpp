@@ -1,0 +1,56 @@
+---
+title: "Hadley's Hope"
+author: "Adam Sardar"
+date: "07/01/2015"
+output: html_document
+---
+
+This is my works through the excercises in Hadley Wickham's ['Advanced R'](http://adv-r.had.co.nz/Rcpp.html#rcpp-intro) book.
+
+```{r}
+
+library(Rcpp)
+library(RcppArmadillo)
+library(RcppEigen)
+library(inline)
+
+```
+
+
+We start with the Guess The function Round:
+
+
+```{r}
+Rcpp::sourceCpp('analysis/guessTheFunction.cpp')
+
+a <- seq(1:100)
+b <- sample(c(TRUE,FALSE),100,replace=TRUE)
+
+f1(a) == mean(a)
+
+f2(a) == cumsum(a)
+
+f3(b) == (length(which(b)) > 0)
+
+# f4 is a function that loops through a dataset and returns positive preditictiond from a model
+
+
+
+```
+
+
+```{r}
+
+
+
+/*** R
+set.seed(42)
+X <- matrix(rnorm(4*4), 4, 4)
+Z <- X %*% t(X)
+
+getEigenValues(Z)
+*/
+
+
+```
+
